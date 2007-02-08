@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="article">
+    <h2 class="title"><a href="{{ object.get_absolute_url }}">{{ object.name }}</a></h2>
+    <div class="body">{{ object.body }}</div>
+    
+    <div class="footer"></div>
+  
+    <div class="footer meta">Jordi Funollet, {{ object.pub_date|date:"j-m-Y H:i" }}</div>
+    {% block comments %}{% endblock %}
+</div>
+{% endblock %}

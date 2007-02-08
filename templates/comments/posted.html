@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="article">
+  <div class="body">
+    {% trans "Comment posted successfully" %}.
+    {% trans "Thanks for contributing" %}.
+    {% if object %}<a href="{{ object.get_absolute_url }}">{% trans "View your comment" %}</a>.
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

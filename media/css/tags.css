@@ -1,0 +1,74 @@
+.tag_widget li,
+.tag_widget p {
+  float:left;
+}
+
+.tag_widget input {
+  width:5em;
+}
+
+.tag_widget .output {
+  font-weight:bold;
+}
+
+
+.tag_widget ul {
+  padding:0; margin:0;
+}
+
+.tag_widget li {
+  list-style:none;
+  margin:0; padding:1px 1em 1px 0;
+}
+
+.tag_widget p {
+  margin:0; padding:1px;
+}
+
+.tag_widget .input img {
+  vertical-align:0;
+}
+
+* html .tag_widget .input img {
+  vertical-align:3px;
+}
+
+.tag_widget .output img,
+.tag_widget p img {
+  vertical-align:-2px;
+}
+
+/* Layout *********************************************************/
+
+ul.suggest,
+ul.suggest li {
+  list-style:none;
+  margin:0; padding:0;
+}
+
+/* Fonts **********************************************************/
+
+ul.suggest {
+  font-size:90%;
+}
+
+/* Colors *********************************************************/
+
+ul.suggest {
+  background:#F0F0F0; color:black;
+  border-color:#AAA;
+}
+
+ul.suggest .selected {
+  background:#888; color:white;
+}
+
+/* Misc ***********************************************************/
+
+ul.suggest {
+  border-style:solid; border-width:1px;
+}
+
+ul.suggest li {
+  padding:2px;
+}

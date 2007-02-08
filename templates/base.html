@@ -1,0 +1,92 @@
+{% load i18n %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+{% block meta %} <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />{% endblock %}
+{% block headlink %} <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="/feeds/blog/" />
+{% endblock %}
+{% block title %} <title>{% trans "De terrícoles i xarxes" %}</title> {% endblock %}
+{% block style %}
+ <link href="{{ media_url }}css/base.css" rel="stylesheet" type="text/css" />
+ <!--[if IE]>
+ <link href="{{ media_url }}css/base-ie.css" rel="stylesheet" type="text/css" />
+ <![endif]-->
+{% endblock %}
+{% block script %}{% endblock %}
+</head>
+
+{% block body-opentag %}<body class="fluid green">{% endblock %}
+<div id="wrapper">
+
+{% block header %}
+<div id="header" class="clearfix">
+    {% block header-title %}
+    <div id="title" class="clearfix">
+        <h1><a href="/">De terrícoles i xarxes</a></h1>
+    </div>
+    {% endblock %}
+    {% block header-sections %}
+    <h2>Sections</h2>
+    <ul id="menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/codi/">Codi</a></li>
+        <li><a href="/meta/sobre/">Sobre</a></li>
+    </ul>
+    {% endblock %}
+</div>
+{% endblock %}
+
+<div id="contentwrapper" class="clearfix">
+ <div id="content">
+  <div id="innerwrapper">
+    {% block content %}{% endblock %}
+  </div><!-- innerwrapper -->
+ </div><!-- content -->
+
+
+ {% block sidebar %}
+ <div id="sidebar">
+
+ {% block blogroll %} 
+ <div class="boxy short">
+   <h3>Veïns</h3>
+   <ul>
+    <li><a href="http://www.badopi.org/" title="">Badopi</a></li>
+    <li><a href="http://caliu.info/" title="">Caliu</a></li>
+    <li><a href="http://javierlinares.com/" title="">javierlinares.com</a></li>
+    <li><a href="http://kopernix.com" title="">Kopernix</a></li>
+    <li><a href="http://cabreta.terraquis.net/" title="">La Cabreta Cursi</a></li>
+    <li><a href="http://www.linuxbcn.com/linuxbcn/blog" title="">LinuxBCN</a></li>
+    <li><a href="http://wordpress.genove.info/" title="">Liwyatan</a></li>
+    <li><a href="http://www.marianitu.net/" title="">Marianitu</a></li>
+    <li><a href="http://rcarreras.blogspot.com/" title="">Rafael Carreras</a></li>
+    </ul>
+ </div>
+ {% endblock %}
+ 
+ {% block feeds %}
+ <div class="boxy short minor">
+    <h3>Subscriure's</h3>
+    
+    <ul>
+    <li><a class="feed" href="/feeds/blog/"><span>Atom 1.0</span></a></li>
+    </ul>
+ </div>
+ {% endblock %}
+
+ </div><!-- sidebar -->
+ {% endblock %}
+</div><!-- contentwrapper -->
+
+{% block footer %}
+<div id="footer">
+    <p>Valid <a href="http://validator.w3.org/check/referer">XHTML</a> and <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>.
+    Design from <a href="http://evil.che.lu/projects/skittlish">skittlish</a>.</p>
+    <a href="http://www.djangoproject.com/"><img src="/media/img/djangomade124x25.gif" border="0" alt="Made with Django." title="Made with Django." /></a>
+</div>
+{% endblock %}
+
+</div><!-- wrapper -->
+</body>
+</html>

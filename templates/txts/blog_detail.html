@@ -1,0 +1,26 @@
+{% extends "txts/txt_detail.html" %}
+{% load comments.comments %}
+
+{% block comments %}
+<div class="comments">
+    {% get_free_comment_count for txts.txt object.id as comment_count %}
+    <a href="{{ object.get_absolute_url }}">#comentaris: {{ comment_count }}</a>
+</div>
+    
+<div id="commentslist">
+    {% get_free_comment_list for txts.txt object.id as comment_list %}
+    <h3 id="comments" class="content">Comentaris</h3>
+    <ul>
+    {% for comment in comment_list %}
+    <li class="comment" id="comment-{{ comment.id }}">
+    <p class="meta"><strong>{{ comment.person_name }}</strong> on <em>{{ comment.submit_date }}</em></p>
+    <div class="body">{{ comment.comment }}</div>
+    </li>
+    {% endfor %}
+    </ul>
+</div>
+
+<div id="commentform">
+{% free_comment_form for txts.txt object.id %}
+</div>
+{% endblock %}

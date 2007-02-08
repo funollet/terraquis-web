@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block script %}
+<script type="text/javascript" src="{{ media_url }}js/jquery.pack.js"></script>
+<script type="text/javascript" src="http://www.23hq.com/allioli/script/data.js?mode=basic&selection=public&limit=1&sort=uploaded">
+</script>
+<script>
+$(document).ready( function() {
+    for (photo_id in photos) {
+        last_caption = '' ;
+        if ( photos[photo_id].words != '')
+            last_caption = '<p>' +photos[photo_id].words+ '</p>' ;
+        last_home = 'http://www.23hq.com/' + photos[photo_id].username + '/'
+        last_img = '<a href="' + last_home + '"><img src="' 
+            + last_home + 'photo/'+ photo_id + '/standard/" /></a>' ;
+        $('#photo23-content').html( last_img + last_caption ) ;
+    }
+});
+</script>
+{% endblock %}
+ 
+
+{% block content %}
+<div class="photo23 article">
+    <h2><a href="http://www.23hq.com/allioli/">Mirant...</a></h2>
+    <div id="photo23-content"></div>
+</div>
+
+{% for object in object_list %}
+<div class="article">
+    <h2 class="title"><a href="{{ object.get_absolute_url }}">{{ object.name }}</a></h2>
+    <div class="body">
+        {% if object.abstract %}{{ object.abstract }}
+        {% else %}{{ object.body }}
+        {% endif %}
+    </div>
+    
+    <div class="footer meta">Jordi Funollet, {{ object.pub_date|date:"j-m-Y H:i" }} || tags: 
+        {% for tag in object.tags.all %}
+        <a href="{{ tag.get_absolute_url }}" rel="tag">{{ tag.value }}</a>
+        {% endfor %}
+    </div>
+  
+    {% block comments %}{% endblock %}
+</div>
+
+{% endfor %}
+
+{% endblock %}
