@@ -541,3 +541,4 @@ body.green .article #photo23-content a { color: #61ac00; }
 body .article #photo23-content { text-align: right ; }
 /* body .article #photo23-content a img { float: right ; } */
 body.green .photo23.article h2 { text-align: right ; }
+body.green .photo23.article p { color: #61ac00;   font-weight: bold; }
