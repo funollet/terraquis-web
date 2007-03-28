@@ -58,6 +58,7 @@ INSTALLED_APPS = (
     'django.contrib.comments',
     'tags',
     'txts',
+    'photoplanet',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
