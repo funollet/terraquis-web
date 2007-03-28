@@ -1,31 +1,18 @@
 {% extends "base.html" %}
-
-{% block script %}
-<script type="text/javascript" src="{{ media_url }}js/jquery.pack.js"></script>
-<script type="text/javascript" src="http://www.23hq.com/allioli/script/data.js?mode=basic&selection=public&limit=1&sort=uploaded">
-</script>
-<script>
-$(document).ready( function() {
-    for (photo_id in photos) {
-        last_caption = '' ;
-        if ( photos[photo_id].words != '')
-            last_caption = '<p>' +photos[photo_id].words+ '</p>' ;
-        last_home = 'http://www.23hq.com/' + photos[photo_id].username + '/'
-        last_img = '<a href="' + last_home + '"><img src="' 
-            + last_home + 'photo/'+ photo_id + '/standard/" /></a>' ;
-        $('#photo23-content').html( last_img + last_caption ) ;
-    }
-});
-</script>
-{% endblock %}
- 
+{% load photoplanet_tags %}
 
 {% block content %}
+{% get_photoplanet_last "allioli" %}
 <div class="photo23 article">
-    <h2><a href="http://www.23hq.com/allioli/">Mirant...</a></h2>
-    <div id="photo23-content"></div>
+    <h2><a href="{{ photoplanet_last.link }}">Mirant...</a></h2>
+    <div id="photo23-content">
+    <a href="{{ photoplanet_last.link }}"><img src="{{ photoplanet_last.guid }}/standard/"></a>
+    {% if photoplanet_last.title %}<p>{{ photoplanet_last.title}}</p>{% endif %}
+    </div>
 </div>
-
+<div>
+</div>
+    
 {% for object in object_list %}
 <div class="article">
     <h2 class="title"><a href="{{ object.get_absolute_url }}">{{ object.name }}</a></h2>
