@@ -47,6 +47,7 @@ MIDDLEWARE_CLASSES = (
 
 TEMPLATE_DIRS = (
     join(PROJECT_ROOT, 'templates', ''),
+    join(PROJECT_ROOT, 'templates-global', ''),
 )
 
 INSTALLED_APPS = (
@@ -56,6 +57,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.comments',
+    'misc',
     'tags',
     'txts',
     'photoplanet',
@@ -70,7 +72,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 ABSOLUTE_URL_OVERRIDES = {
     'txts.txt': lambda o: '/%s/%s/' % (o.section.permalink, o.permalink),
-    'tags.tag': lambda o: '/tag/%s/' % (o.value,),
+    'tags.tag': lambda o: '/tags/%s/' % (o.value,),
 }
 
 # Tags application.
