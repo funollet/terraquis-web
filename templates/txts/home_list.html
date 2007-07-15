@@ -6,8 +6,10 @@
 <div class="photo23 article">
     <h2><a href="{{ photoplanet_last.link }}">Mirant...</a></h2>
     <div id="photo23-content">
-    <a href="{{ photoplanet_last.link }}"><img src="{{ photoplanet_last.guid }}/standard/"></a>
-    {% if photoplanet_last.title %}<p>{{ photoplanet_last.title}}</p>{% endif %}
+        <a href="{{ photoplanet_last.link }}">
+        <img src="{{ photoplanet_last.guid }}/standard/"></a>
+<!--         <img src="/media/img/nyam.jpg"></a> -->
+        {% if photoplanet_last.title %}<p><a href="{{ photoplanet_last.link }}">{{ photoplanet_last.title}}</a></p>{% endif %}
     </div>
 </div>
 <div>

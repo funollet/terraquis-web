@@ -535,11 +535,29 @@ body.violet #sidebar        { background-image: url(/media/skittlish/x_violet_si
 body.violet #sidebar .short { background-image: url(/media/skittlish/x_violet_boxy_short.gif); }
 body.violet #sidebar .tall  { background-image: url(/media/skittlish/x_violet_boxy_tall.gif); }
 
+
+
 /* terraquis customization */
 body.green .article .body a { color: #61ac00; }
-body.green .article #photo23-content a { color: #61ac00; }
-/* body .article #photo23-content { text-align: right ; } */
-/* body .article #photo23-content a img { float: right ; } */
-/* body.green .photo23.article h2 { text-align: right ; } */
-body.green .photo23.article { text-align: right ; }
-body.green .photo23.article p { color: #61ac00;   font-weight: bold; }
+#content p { color: #1b1b1b ; } /* IE6 doesn't see default color  */
+
+
+#innerwrapper { zoom: 1 ;}
+#photo23-content {
+/*     position: relative ; */
+    text-align: right ;
+/*     zoom: 1 ; */
+}
+#photo23-content a img {
+/*     display: block ; */
+/*     zoom: 1 ; */
+}
+#photo23-content p a {
+    color: #61ac00 ;
+    font-weight: bold ;
+/*     position: absolute ; */
+    right: 3em;
+    bottom: 1em ;
+    font-size: 1.5em;
+/*     width: 100%; */
+}
