@@ -19,7 +19,7 @@ class TerraquisFeed (Feed):
 class BlogEntries (TerraquisFeed):
     '''Feed all blog entries.'''
     def items(self):
-        return Txt.public.filter(section__permalink='blog').order_by('-pub_date')[:15]
+        return Txt.public.filter(section__easylink='blog').order_by('-pub_date')[:15]
 
 
 class OpenKnowledge (TerraquisFeed):
@@ -27,6 +27,6 @@ class OpenKnowledge (TerraquisFeed):
     
     def items(self):
         selected_tags = ['codi-lliure','open-source','net']
-        return Txt.public.filter(section__permalink='blog'
+        return Txt.public.filter(section__easylink='blog'
             ).filter(tags__value__in=selected_tags).order_by('-pub_date')[:15]
     
