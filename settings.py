@@ -71,7 +71,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 ABSOLUTE_URL_OVERRIDES = {
-    'txts.txt': lambda o: '/%s/%s/' % (o.section.easylink, o.easylink),
+    'txts.txt': lambda o: '/%s/%s/' % (o.section.easyname, o.easyname),
     'tags.tag': lambda o: '/tags/%s/' % (o.value,),
 }
 
