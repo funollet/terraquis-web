@@ -58,7 +58,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.comments',
     'misc',
-    'tags',
+    'tagging',
     'txts',
     'photoplanet',
 )

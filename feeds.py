@@ -1,7 +1,7 @@
 from django.contrib.syndication.feeds import Feed
 from txts.models import Txt
 from django.utils.feedgenerator import Atom1Feed
-
+from tagging.models import Tag,TaggedItem
 
 class TerraquisFeed (Feed):
     '''Generic feed customized for terraquis.net site.'''
@@ -26,7 +26,10 @@ class OpenKnowledge (TerraquisFeed):
     '''Feed blog entries from selected topics: Open source, CC, open science,...'''
     
     def items(self):
-        selected_tags = ['codi-lliure','open-source','net']
-        return Txt.public.filter(section__easyname='blog'
-            ).filter(tags__value__in=selected_tags).order_by('-pub_date')[:15]
+        # Previous tags:
+        #selected_tags = ['codi-lliure','open-source','net']
+        #
+        codilliure = Tag.objects.get(name='codi-lliure')
+        return TaggedItem.objects.get_by_model(Txt, codilliure).filter(
+            section__easyname='blog').order_by('-pub_date')[:15]
     
