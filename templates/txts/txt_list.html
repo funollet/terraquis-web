@@ -11,10 +11,12 @@
         {% endif %}
     </div>
     
-    <div class="footer meta">Jordi Funollet, {{ object.pub_date|date:"j-m-Y H:i" }} || tags: 
-        {% for tag in object.tags.all %}
-        <a href="{{ tag.get_absolute_url }}" rel="tag">{{ tag.value }}</a>
-        {% endfor %}
+    <div class="footer meta">Jordi Funollet, {{ object.pub_date|date:"j-m-Y H:i" }} 
+        {% if object.tags.all %}|| tags:
+            {% for tag in object.tags.all %}
+            {{ tag.value }}&nbsp;
+            {% endfor %}
+        {% endif %}
     </div>
   
     {% block comments %}{% endblock %}
