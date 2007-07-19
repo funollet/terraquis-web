@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load photoplanet_tags %}
+{% load tagging_tags %}
 
 {% block content %}
 {% get_photoplanet_last "allioli" %}
@@ -25,9 +26,10 @@
     </div>
     
     <div class="footer meta">Jordi Funollet, {{ object.pub_date|date:"j-m-Y H:i" }} 
-        || tags: {% for tag in object.tags.all %}
-        {{ tag.value }}
-        {% endfor %}
+        {% tags_for_object object as tag_list %}
+        {% if tag_list %}|| tags:
+            {% for tag in tag_list %}{{ tag }} {% endfor %}
+        {% endif %}
     </div>
   
     {% block comments %}{% endblock %}
