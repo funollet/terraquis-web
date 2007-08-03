@@ -72,11 +72,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 ABSOLUTE_URL_OVERRIDES = {
     'txts.txt': lambda o: '/%s/%s/' % (o.section.easyname, o.easyname),
-    'tags.tag': lambda o: '/tags/%s/' % (o.value,),
 }
-
-# Tags application.
-STYLE_URL = join(MEDIA_URL, 'tags', '')
 
 # Skip <h1>, I'll use on titles
 RESTRUCTUREDTEXT_FILTER_SETTINGS = {'initial_header_level': 2 }

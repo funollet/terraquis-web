@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load tagging_tags %}
 
 {% block content %}
 <div class="article">
@@ -8,12 +7,13 @@
     
     <div class="footer"></div>
   
-    <div class="footer meta">Jordi Funollet, {{ object.pub_date|date:"j-m-Y H:i" }}
-        {% tags_for_object object as tag_list %}
-        {% if tag_list %}|| tags:
-            {% for tag in tag_list %}{{ tag }} {% endfor %}
-        {% endif %}
+    <div class="footer meta">
+        {% if object.author_name %}{{ object.author_name }}, {% endif %} 
+        {{ object.pub_date|date:"j-m-Y H:i" }} 
+        {% include "txts/txts_tags.html" %}
     </div>
+    
     {% block comments %}{% endblock %}
+
 </div>
 {% endblock %}
