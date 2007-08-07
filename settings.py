@@ -71,7 +71,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 ABSOLUTE_URL_OVERRIDES = {
-    'txts.txt': lambda o: '/%s/%s/' % (o.section.easyname, o.easyname),
+    'txts.txt': lambda o: u'/%s/%s/' % (o.section.easyname, o.easyname),
 }
 
 # Skip <h1>, I'll use on titles
