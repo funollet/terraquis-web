@@ -1,9 +1,10 @@
 {% extends "base.html" %}
+{% load markup %}
 
 {% block content %}
 <div class="article">
     <h2 class="title"><a href="{{ object.get_absolute_url }}">{{ object.name }}</a></h2>
-    <div class="body">{{ object.body }}</div>
+    <div class="body">{{ object.body|markdown }}</div>
     
     <div class="footer"></div>
   

@@ -57,6 +57,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.comments',
+    'django.contrib.markup',
     'misc',
     'tagging',
     'txts',
@@ -74,6 +75,7 @@ ABSOLUTE_URL_OVERRIDES = {
     'txts.txt': lambda o: u'/%s/%s/' % (o.section.easyname, o.easyname),
 }
 
+MARKUP='markdown'
 # Skip <h1>, I'll use on titles
 RESTRUCTUREDTEXT_FILTER_SETTINGS = {'initial_header_level': 2 }
 

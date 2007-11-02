@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load photoplanet_tags %}
 {% load tagging_tags %}
+{% load markup %}
 
 {% block content %}
 {% get_photoplanet_last "allioli" %}
@@ -20,8 +21,8 @@
 <div class="article">
     <h2 class="title"><a href="{{ object.get_absolute_url }}">{{ object.name }}</a></h2>
     <div class="body">
-        {% if object.abstract %}{{ object.abstract }}
-        {% else %}{{ object.body }}
+        {% if object.abstract %}{{ object.abstract|markdown }}
+        {% else %}{{ object.body|markdown }}
         {% endif %}
     </div>
     
