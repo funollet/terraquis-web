@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load photoplanet_tags %}
+{% load txts_tags %}
 {% load tagging_tags %}
 {% load markup %}
 
@@ -10,24 +11,23 @@
     <div id="photo23-content">
         <a href="{{ photoplanet_last.link }}">
         <img src="{{ photoplanet_last.guid }}/standard/"></a>
-<!--         <img src="/media/img/nyam.jpg"></a> -->
         {% if photoplanet_last.title %}<p><a href="{{ photoplanet_last.link }}">{{ photoplanet_last.title}}</a></p>{% endif %}
     </div>
 </div>
 <div>
 </div>
     
-{% for object in object_list %}
+{% get_blog_last %}
 <div class="article">
-    <h2 class="title"><a href="{{ object.get_absolute_url }}">{{ object.name }}</a></h2>
+    <h2 class="title"><a href="{{ blog_last.get_absolute_url }}">{{ blog_last.name }}</a></h2>
     <div class="body">
-        {% if object.abstract %}{{ object.abstract|markdown }}
-        {% else %}{{ object.body|markdown }}
+        {% if blog_last.abstract %}{{ blog_last.abstract|markdown }}
+        {% else %}{{ blog_last.body|markdown }}
         {% endif %}
     </div>
     
-    <div class="footer meta">Jordi Funollet, {{ object.pub_date|date:"j-m-Y H:i" }} 
-        {% tags_for_object object as tag_list %}
+    <div class="footer meta">Jordi Funollet, {{ blog_last.pub_date|date:"j-m-Y H:i" }} 
+        {% tags_for_object blog_last as tag_list %}
         {% if tag_list %}|| tags:
             {% for tag in tag_list %}{{ tag }} {% endfor %}
         {% endif %}
@@ -36,6 +36,5 @@
     {% block comments %}{% endblock %}
 </div>
 
-{% endfor %}
 
 {% endblock %}
