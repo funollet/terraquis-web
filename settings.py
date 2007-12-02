@@ -58,7 +58,6 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.comments',
     'django.contrib.markup',
-    'misc',
     'tagging',
     'txts',
     'photoplanet',
@@ -74,9 +73,5 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 ABSOLUTE_URL_OVERRIDES = {
     'txts.txt': lambda o: u'/%s/%s/' % (o.section.easyname, o.easyname),
 }
-
-MARKUP='markdown'
-# Skip <h1>, I'll use on titles
-RESTRUCTUREDTEXT_FILTER_SETTINGS = {'initial_header_level': 2 }
 
 SECTIONS_WITH_CUST_TMPL=['blog']
