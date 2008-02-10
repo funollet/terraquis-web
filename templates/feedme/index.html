@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block style %}{{ block.super}}
+<link href="{{ MEDIA_URL }}css/photoplanet.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+
+{% block content %}
+
+{% if feeds %}
+<table id="photoplanet">
+{% for f in feeds %}
+  {% ifequal f.group.name "photoblogs" %}
+  {% if f.rss.entries %}
+
+    {% cycle <tr>,<!---->,<!----> %}
+        <td>
+            <table>
+            <tr><td style="height: 140px">
+                <a href="{{ f.feed_link }}">
+                <img class="photoplanet" src="{{ f.rss.entries.0.guid }}/mblog" alt="{{ f.feed_title }}" /></a>
+            </td></tr>
+            <tr><td><a href="{{ f.feed_link }}">{{ f.feed_title }}</a></td></tr>
+            </table>
+        </td>
+    {% cycle <!---->,<!---->,</tr> %}
+    {% if forloop.last %}{% if forloop.counter|divisibleby:"2" %}{% else %}
+        </tr>
+    {% endif %}{% endif %}
+
+  {% endif %}
+  {% endifequal %}
+{% endfor %}
+</table>
+{% endif %}
+
+{% endblock %}

@@ -14,7 +14,7 @@ urlpatterns = patterns('',
     (r'^$', 'django.views.generic.simple.direct_to_template', {'template': 'home.html'}),
     (r'^feeds/(?P<url>.*)/$', 'django.contrib.syndication.views.feed', {'feed_dict': feeds}),
     (r'^comments/', include('django.contrib.comments.urls.comments')),
-    (r'^photoplanet/', include('photoplanet.urls')),
+    (r'^photoplanet/', include('feedme.urls')),
     (r'^', include('txts.urls')),
 )
 

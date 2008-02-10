@@ -1,17 +1,17 @@
 {% extends "base.html" %}
-{% load photoplanet_tags %}
+{% load feedme_tags %}
 {% load txts_tags %}
 {% load tagging_tags %}
 {% load markup %}
 
 {% block content %}
-{% get_photoplanet_last "allioli" %}
+{% get_feedme_last "Jordi Funollet" %}
 <div class="photo23 article">
-    <h2><a href="{{ photoplanet_last.link }}">Mirant...</a></h2>
+    <h2><a href="{{ feedme_last.link }}">Mirant...</a></h2>
     <div id="photo23-content">
-        <a href="{{ photoplanet_last.link }}">
-        <img src="{{ photoplanet_last.guid }}/standard/"></a>
-        {% if photoplanet_last.title %}<p><a href="{{ photoplanet_last.link }}">{{ photoplanet_last.title}}</a></p>{% endif %}
+        <a href="{{ feedme_last.link }}">
+        <img src="{{ feedme_last.guid }}/standard/"></a>
+        {% if feedme_last.title %}<p><a href="{{ feedme_last.link }}">{{ photoplanet_last.title}}</a></p>{% endif %}
     </div>
 </div>
 <div>

@@ -60,7 +60,7 @@ INSTALLED_APPS = (
     'django.contrib.markup',
     'tagging',
     'txts',
-    'photoplanet',
+    'feedme', 'feedme-photos',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -75,3 +75,4 @@ ABSOLUTE_URL_OVERRIDES = {
 }
 
 SECTIONS_WITH_CUST_TMPL=['blog']
+FEEDME_CACHE_BACKEND = 'file://%s' % join(PROJECT_ROOT, 'cache', 'feedme')
