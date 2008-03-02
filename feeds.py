@@ -30,6 +30,6 @@ class OpenKnowledge (TerraquisFeed):
         #selected_tags = ['codi-lliure','open-source','net']
         #
         codilliure = Tag.objects.get(name='codi-lliure')
-        return TaggedItem.objects.get_by_model(Txt, codilliure).filter(
-            section__easyname='blog').order_by('-pub_date')[:15]
-    
+        return TaggedItem.objects.get_by_model(Txt, codilliure).\
+            filter(section__easyname='blog').filter(status='pbl').\
+            order_by('-pub_date')[:15]
