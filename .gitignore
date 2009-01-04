@@ -1,0 +1,9 @@
+settings_local.py
+apps/
+cache/
+django/
+media/img/
+media/skittlish/
+*.sqlt
+*.db
+
